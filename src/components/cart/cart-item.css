@@ -1,0 +1,24 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item h4 {
+    margin: 0;
+    color: #ffd700;
+}
+
+.cart-item p {
+    color: #ccc;
+}

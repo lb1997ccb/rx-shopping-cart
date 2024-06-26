@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import { CartProvider, CartContext  } from './context/cart-context';
+import ShopProductList from './components/shop-product/shop-product-list';
+import Notification from "./components/notification/notification";
+import Cart from './components/cart/cart';
+import { useContext } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <CartProvider>
+            <div className="app">
+                <h1>React Shopping Cart</h1>
+                <ShopProductList />
+                <Cart />
+                <NotificationWrapper />
+            </div>
+        </CartProvider>
+    );
+}
+
+function NotificationWrapper() {
+    const { notification, clearNotification } = useContext(CartContext);
+
+    if (!notification) return null;
+
+    return <Notification message={notification} onClose={clearNotification} />;
 }
 
 export default App;
